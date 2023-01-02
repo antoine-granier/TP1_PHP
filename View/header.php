@@ -9,10 +9,19 @@
 
     <div id="account_bar">
         <div class="connection center">
-            <a href="./index.php?ctrl=user&action=login" class="no-deco" title="Login or create account">
-                <img src="View/images/person.svg" alt="">
-                <div class="text">Login</div>
-            </a>
+            <?php
+                if(isset($_SESSION['user']) && !empty($_SESSION['user'])) {
+                    echo "<a href=\"./index.php?ctrl=user&action=doDisconnect\" class=\"no-deco\" title=\"Disconnect\">
+                            <img src=\"View/images/person.svg\" alt=\"\">
+                            <div class=\"text\">Disconnect</div>
+                        </a>";
+                } else {
+                    echo "<a href=\"./index.php?ctrl=user&action=login\" class=\"no-deco\" title=\"Login or create account\">
+                            <img src=\"View/images/person.svg\" alt=\"\">
+                            <div class=\"text\">Login</div>
+                        </a>";
+                }
+            ?>
         </div>
     </div>
 

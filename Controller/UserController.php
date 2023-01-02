@@ -36,6 +36,7 @@ public function doLogin() {
             $this->user->setPassword($_POST['password']);
         }
         $result =  $this->userManager->login($this->user) ;
+        var_dump($_SESSION);
 
         if ($result) {
             $info = 'Connexion réussie :)';
@@ -72,6 +73,16 @@ public function doCreate()
     }
 }
     require('./View/default.php');
+}
+
+public function doDisconnect() {
+    unset($_SESSION['user']);
+    $page = 'home';
+    require('./View/default.php');
+}
+
+public function listUser() {
+    $_SESSION["list_user"] = $this->userManager->findAll();
 }
 }
 ?>

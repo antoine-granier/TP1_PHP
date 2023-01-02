@@ -50,6 +50,11 @@ margin-25 {
   flex-direction: column;
 }
 
+.no-deco img {
+  width: 30px;
+  height: 30px;
+}
+
 /*General*/
 body {
   background-color: #e8e8e8;
