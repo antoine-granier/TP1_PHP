@@ -33,7 +33,7 @@ class UserManager{
                 'address' => $user->getAddress(),
                 'cp' => $user->getPostalCode(),
                 'city' => $user->getCity(),
-                'password' => $user->getPassword()
+                'password' => md5($user->getPassword())
             )
         );
     }

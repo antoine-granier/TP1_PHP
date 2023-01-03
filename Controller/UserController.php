@@ -33,13 +33,12 @@ public function doLogin() {
             ( isset($_POST['password']) && !empty ($_POST['password']))
         ) {
             $this->user->setEmail($_POST['email']);
-            $this->user->setPassword($_POST['password']);
+            $this->user->setPassword(md5($_POST['password']));
         }
         $result =  $this->userManager->login($this->user) ;
-        var_dump($_SESSION);
 
         if ($result) {
-            $info = 'Connexion réussie :)';
+            $info = 'Bonjour '.$result['firstName'];
             $_SESSION['user'] = $result;
             $page = 'home';
         } else {
@@ -76,13 +75,16 @@ public function doCreate()
 }
 
 public function doDisconnect() {
-    unset($_SESSION['user']);
     $page = 'home';
+    $info = "Au revoir ".$_SESSION['user']['firstName'];
+    unset($_SESSION['user']);
     require('./View/default.php');
 }
 
-public function listUser() {
-    $_SESSION["list_user"] = $this->userManager->findAll();
+public function usersList() {
+   $_SESSION["list_user"] = $this->userManager->findAll();
+        $page = 'usersList';
+        require('./View/default.php');
 }
 }
 ?>
