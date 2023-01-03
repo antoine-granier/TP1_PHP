@@ -6,10 +6,10 @@
         private $password;
         private $db;
         public function __construct() {
-            $this->host = 'localhost';
-            $this->dbname = 'managerentity';
-            $this->username = 'root';
-            $this->password = '';
+            $this->host = 'mysql-granierantoine.alwaysdata.net';
+            $this->dbname = 'granierantoine_1';
+            $this->username = '294597';
+            $this->password = 'antoinegranier';
             try
             {
                 $this->db = new PDO('mysql:host=' . $this->host . ';dbname='
