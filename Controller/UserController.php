@@ -33,7 +33,7 @@ public function doLogin() {
             ( isset($_POST['password']) && !empty ($_POST['password']))
         ) {
             $this->user->setEmail($_POST['email']);
-            $this->user->setPassword(md5($_POST['password']));
+            $this->user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
         }
         $result =  $this->userManager->login($this->user) ;
 

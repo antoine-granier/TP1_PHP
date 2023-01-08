@@ -13,7 +13,7 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
             </div>";
     } else {
         if (isset($_SESSION['list_user']) && !empty($_SESSION['list_user'])) {
-            echo '<table><thead><tr><th> firstname </th> <th>lastname</th> <th>email</th> <th>address</th> <th>cp</th> <th>city</th> </tr> </thead>
+            echo '<table><thead><tr><th> firstname </th> <th>lastname</th> <th>email</th> <th>address</th> <th>cp</th> <th>city</th> <th>password</th> </tr> </thead>
             <tbody> ';
 
             for ($i = 0; $i < count($_SESSION['list_user']); $i++) {
@@ -25,6 +25,7 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
                     <td>' . $user['address'] . '</td>
                     <td>' . $user['postalCode'] . '</td>
                     <td>' . $user['city'] . '</td>
+                    <td>' . $user['password'] . '</td>
                     </tr>';
 
             }
